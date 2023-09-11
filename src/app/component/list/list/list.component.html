@@ -8,15 +8,15 @@
                 <div class="card flex align-items-center gap-3 ml-auto header-right">
                     <div class="flex align-items-center gap-1">
                         <p-checkbox name="group1" [value]="true"></p-checkbox>
-                        <label for="ny">OFF LOCATION ({{ getCountByStatus('off location') | async }})</label>
+                        <label for="" class="status_label">OFF LOCATION ({{ getCountByStatus('off location') | async }})</label>
                     </div>
                     <div class="flex align-items-center gap-1">
                         <p-checkbox name="group1" [value]="true"></p-checkbox>
-                        <label for="sf">STANDBY ({{ getCountByStatus('standby') | async }})</label>
+                        <label for="" class="status_label">STANDBY ({{ getCountByStatus('standby') | async }})</label>
                     </div>
                     <div class="flex align-items-center gap-1">
                         <p-checkbox name="group1" [value]="true"></p-checkbox>
-                        <label for="la">RIGGED IN ({{ getCountByStatus('rigged in') | async }})</label>
+                        <label for="" class="status_label">RIGGED IN ({{ getCountByStatus('rigged in') | async }})</label>
                     </div>
                 </div>
             </div>
