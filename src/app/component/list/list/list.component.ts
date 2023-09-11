@@ -15,13 +15,11 @@ export class ListComponent {
   stickets$: Observable<Sticket[]>;
   selectedSticket: Sticket | null = null;
 
-  showUpdate: boolean = false;
   constructor(private store: Store<{ stickets: Sticket[] }>) {
     this.stickets$ = this.store.select(selectAllStickets);
   }
 
   showDialog(sticket: Sticket) {
-    this.showUpdate = true;
     this.selectedSticket = { ...sticket };
   }
 

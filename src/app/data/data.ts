@@ -238,5 +238,39 @@ export const STICKETS: Sticket[] = [
         equipment: 'Generic1Compartment',
         delivery_type: 'Delivery-DropOff',
         pad: 'no'
+    },
+    {
+        id: 15,
+        status: 'standby',
+        delivered: new Date(2023, 1, 2),
+        returned: new Date(2023, 2, 3),
+        chemical: 'OptiKleen-WF',
+        supplier: 'MultiChem',
+        trailer: 15017,
+        delivered_qty: 2000,
+        current_qty: 0,
+        returned_qty: 0,
+        net: 2000,
+        bol: '20230717-hcl15',
+        equipment: 'Generic1Compartment',
+        delivery_type: 'Delivery-DropOff',
+        pad: 'no'
+    },
+    {
+        id: 16,
+        status: 'standby',
+        delivered: new Date(2023, 1, 2),
+        returned: new Date(2023, 2, 3),
+        chemical: 'OptiKleen-WF',
+        supplier: 'MultiChem',
+        trailer: 15017,
+        delivered_qty: 2000,
+        current_qty: 0,
+        returned_qty: 0,
+        net: 2000,
+        bol: '20230717-hcl15',
+        equipment: 'Generic1Compartment',
+        delivery_type: 'Delivery-DropOff',
+        pad: 'no'
     }
 ]

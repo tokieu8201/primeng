@@ -1,5 +1,5 @@
 <div class="card">
-    <p-table class="my-custom-table" *ngIf="(stickets$ | async) as stickets" [value]="stickets" [scrollable]="true" scrollHeight="600px">
+    <p-table class="my-custom-table" *ngIf="(stickets$ | async) as stickets" [value]="stickets" [scrollable]="true" scrollHeight="90vh">
         <ng-template pTemplate="caption">
             <div class="flex">
                 <div>
@@ -70,5 +70,5 @@
             </tr>
         </ng-template>
     </p-table>
-    <app-update *ngIf="showUpdate && selectedSticket" [selectedSticket]="selectedSticket"></app-update>
+    <app-update *ngIf="selectedSticket" [selectedSticket]="selectedSticket"></app-update>
 </div>

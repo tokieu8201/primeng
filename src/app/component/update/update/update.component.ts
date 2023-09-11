@@ -31,10 +31,4 @@ export class UpdateComponent implements OnChanges{
       this.visible = false;            
     }
   }
-
-  onStatusChange(event: any) {
-    if (this.selectedSticket) {
-      this.selectedSticket.status = event.value;
-    }
-  }
 }

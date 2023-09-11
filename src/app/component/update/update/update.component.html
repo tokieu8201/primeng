@@ -3,7 +3,7 @@
         <div class="flex flex-column gap-2">
             <label htmlFor="status" class="mt-1">Status</label>
             <!-- <input pInputText id="status" aria-describedby="username-help" class="p-inputtext-sm" [(ngModel)]="selectedSticket.status"/> -->
-            <p-dropdown [style]="{ 'width': '100%' }" [options]="listStatus" [(ngModel)]="selectedSticket.status" [filter]="true" optionLabel="label" optionValue="value" (onChange)="onStatusChange($event)"></p-dropdown>
+            <p-dropdown [options]="listStatus" [(ngModel)]="selectedSticket.status" [filter]="true" optionLabel="label" optionValue="value" [style]="{ 'width': '100%' }"></p-dropdown>
         </div>
         <div class="flex flex-column gap-2">
             <label htmlFor="delivered" class="mt-2">Delivered</label>
