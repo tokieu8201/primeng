@@ -1,4 +1,4 @@
-export interface Sticket {
+export interface Ticket {
     id: number,
     status: string,
     delivered: Date,

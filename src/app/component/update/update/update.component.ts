@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges} from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Sticket } from 'src/app/models/sticket.model';
-import { updateSticketSuccess } from 'src/app/state/sticket.action';
+import { Ticket } from 'src/app/models/ticket.model';
+import { updateTicketSuccess } from 'src/app/state/ticket.action';
 
 @Component({
   selector: 'app-update',
@@ -9,7 +9,7 @@ import { updateSticketSuccess } from 'src/app/state/sticket.action';
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnChanges{
-  @Input() selectedSticket: Sticket | null = null;
+  @Input() selectedTicket: Ticket | null = null;
   visible: boolean = true;
 
   listStatus = [
@@ -18,16 +18,16 @@ export class UpdateComponent implements OnChanges{
     { label: 'Rigged In', value: 'rigged in' },
   ];
   
-  constructor(private store: Store<{ stickets: Sticket[] }>) {
+  constructor(private store: Store<{ tickets: Ticket[] }>) {
   }
 
   ngOnChanges() {
     this.visible = true;
   }
 
-  updateSticket(){
-    if (this.selectedSticket) {
-      this.store.dispatch(updateSticketSuccess({ sticket: this.selectedSticket }));
+  updateTicket(){
+    if (this.selectedTicket) {
+      this.store.dispatch(updateTicketSuccess({ ticket: this.selectedTicket }));
       this.visible = false;            
     }
   }

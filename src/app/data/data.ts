@@ -1,6 +1,6 @@
-import { Sticket } from "../models/sticket.model";
+import { Ticket } from "../models/ticket.model";
 
-export const STICKETS: Sticket[] = [
+export const TICKETS: Ticket[] = [
     {
         id: 1,
         status: 'off location',

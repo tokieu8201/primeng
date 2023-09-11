@@ -21,7 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
 
 
-import { sticketReducer } from './state/sticket.reducer';
+import { ticketReducer } from './state/ticket.reducer';
 import { StoreModule } from '@ngrx/store';
 
 @NgModule({
@@ -33,7 +33,7 @@ import { StoreModule } from '@ngrx/store';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ stickets: sticketReducer}),
+    StoreModule.forRoot({ tickets: ticketReducer}),
     TableModule,
     CheckboxModule,
     ScrollerModule,

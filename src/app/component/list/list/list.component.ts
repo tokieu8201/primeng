@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, map } from 'rxjs';
-import { Sticket } from 'src/app/models/sticket.model';
-import { selectAllStickets } from 'src/app/state/sticket.selector';
+import { Ticket } from 'src/app/models/ticket.model';
+import { selectAllTickets } from 'src/app/state/ticket.selector';
 
 
 @Component({
@@ -12,21 +12,21 @@ import { selectAllStickets } from 'src/app/state/sticket.selector';
 })
 
 export class ListComponent {
-  stickets$: Observable<Sticket[]>;
-  selectedSticket: Sticket | null = null;
+  tickets$: Observable<Ticket[]>;
+  selectedTicket: Ticket | null = null;
 
-  constructor(private store: Store<{ stickets: Sticket[] }>) {
-    this.stickets$ = this.store.select(selectAllStickets);
+  constructor(private store: Store<{ tickets: Ticket[] }>) {
+    this.tickets$ = this.store.select(selectAllTickets);
   }
 
-  showDialog(sticket: Sticket) {
-    this.selectedSticket = { ...sticket };
+  showDialog(ticket: Ticket) {
+    this.selectedTicket = { ...ticket };
   }
 
   getCountByStatus(status: string): Observable<number> {
-    return this.stickets$
+    return this.tickets$
       .pipe(
-        map(stickets => stickets.filter(sticket => sticket.status === status).length)
+        map(tickets => tickets.filter(ticket => ticket.status === status).length)
       );
   }
   
