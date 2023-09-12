@@ -89,15 +89,26 @@
     height: 10px;
     margin: auto;
 }
+
 ::ng-deep .p-checkbox .p-checkbox-box {
     border: none;
-    background: gray;
     width: 15px;
     height: 15px;
     color: #495057;
     border-radius: 3px;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
     margin-top: 3px;
+}
+
+::ng-deep .status1 .p-checkbox .p-checkbox-box{
+    background: blueviolet;
+}
+
+::ng-deep .status2 .p-checkbox .p-checkbox-box{
+    background: #3333ff;
+}
+
+::ng-deep .status3 .p-checkbox .p-checkbox-box{
+    background: green;
 }
 
 .status_label{

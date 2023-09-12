@@ -7,15 +7,15 @@
                 </div>
                 <div class="card flex align-items-center gap-3 ml-auto header-right">
                     <div class="flex align-items-center gap-1">
-                        <p-checkbox name="group1" [value]="true"></p-checkbox>
+                        <p-checkbox name="group1" [value]="true" class="status1"></p-checkbox>
                         <label for="" class="status_label">OFF LOCATION ({{ getCountByStatus('off location') | async }})</label>
                     </div>
                     <div class="flex align-items-center gap-1">
-                        <p-checkbox name="group1" [value]="true"></p-checkbox>
+                        <p-checkbox name="group1" [value]="true" class="status2"></p-checkbox>
                         <label for="" class="status_label">STANDBY ({{ getCountByStatus('standby') | async }})</label>
                     </div>
                     <div class="flex align-items-center gap-1">
-                        <p-checkbox name="group1" [value]="true"></p-checkbox>
+                        <p-checkbox name="group1" [value]="true" class="status3"></p-checkbox>
                         <label for="" class="status_label">RIGGED IN ({{ getCountByStatus('rigged in') | async }})</label>
                     </div>
                 </div>
@@ -23,7 +23,6 @@
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
-                <th>Status</th>
                 <th>Status</th>
                 <th>Delivered</th>
                 <th>Returned</th>
@@ -50,7 +49,6 @@
                         'status-rigged': ticket.status === 'rigged in'}" class="status">
                     </div>
                 </td>
-                <td>{{ticket.status}}</td>
                 <td>{{ticket.delivered | date:"MM/dd/yy"}}</td>
                 <td>{{ticket.returned | date:"MM/dd/yy"}}</td>
                 <td>{{ticket.chemical}}</td>

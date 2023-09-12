@@ -1,12 +1,14 @@
 import { Component, Input, OnChanges} from '@angular/core';
 import { Store } from '@ngrx/store';
+import { MessageService } from 'primeng/api';
 import { Ticket } from 'src/app/models/ticket.model';
 import { updateTicketSuccess } from 'src/app/state/ticket.action';
 
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',
-  styleUrls: ['./update.component.css']
+  styleUrls: ['./update.component.css'],
+  providers: [MessageService]
 })
 export class UpdateComponent implements OnChanges{
   @Input() selectedTicket: Ticket | null = null;
@@ -18,7 +20,7 @@ export class UpdateComponent implements OnChanges{
     { label: 'Rigged In', value: 'rigged in' },
   ];
   
-  constructor(private store: Store<{ tickets: Ticket[] }>) {
+  constructor(private store: Store<{ tickets: Ticket[] }>, private messageService: MessageService) {
   }
 
   ngOnChanges() {
@@ -28,7 +30,8 @@ export class UpdateComponent implements OnChanges{
   updateTicket(){
     if (this.selectedTicket) {
       this.store.dispatch(updateTicketSuccess({ ticket: this.selectedTicket }));
-      this.visible = false;            
+      this.visible = false;
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Updated successfully'})            
     }
   }
 }

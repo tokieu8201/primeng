@@ -19,7 +19,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
-
+import { ToastModule } from 'primeng/toast';
+import { PaginatorModule } from 'primeng/paginator';
 
 import { ticketReducer } from './state/ticket.reducer';
 import { StoreModule } from '@ngrx/store';
@@ -45,7 +46,9 @@ import { StoreModule } from '@ngrx/store';
     InputTextModule,
     DropdownModule,
     FormsModule,
-    CalendarModule
+    CalendarModule,
+    ToastModule,
+    PaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
