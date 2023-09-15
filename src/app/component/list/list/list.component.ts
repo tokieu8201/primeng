@@ -1,9 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, map } from 'rxjs';
 import { Ticket } from 'src/app/models/ticket.model';
+import { loadTickets } from 'src/app/state/ticket.action';
 import { selectAllTickets } from 'src/app/state/ticket.selector';
 
+interface Column {
+  field: string;
+  header: string;
+}
 
 @Component({
   selector: 'app-list',
@@ -11,16 +16,52 @@ import { selectAllTickets } from 'src/app/state/ticket.selector';
   styleUrls: ['./list.component.css']
 })
 
-export class ListComponent {
+export class ListComponent implements OnInit{
   tickets$: Observable<Ticket[]>;
+  
   selectedTicket: Ticket | null = null;
+  cols!: Column[];
+  status!: any[];
 
+  @Input()
+  customBodyTemplate!: TemplateRef<any>;
+  
+  @Input()
+  customCaptionTemplate!: TemplateRef<any>;
+  
   constructor(private store: Store<{ tickets: Ticket[] }>) {
     this.tickets$ = this.store.select(selectAllTickets);
   }
 
+  ngOnInit(): void {
+    this.store.dispatch(loadTickets());
+    
+    this.cols = [
+      {field: 'status', header: 'Status'},
+      {field: 'delivered', header: 'Delivered'},
+      {field: 'returned', header: 'Returned'},
+      {field: 'chemical', header: 'Chemical'},
+      {field: 'supplier', header: 'Supplier'},
+      {field: 'trailer', header: 'Trailer'},
+      {field: 'delivered_qty', header: 'Delivered Qty'},
+      {field: 'current_qty', header: 'Current Qty'},
+      {field: 'returned_qty', header: 'Returned Qty'},
+      {field: 'net', header: 'Net'},
+      {field: 'bol', header: 'Bol'},
+      {field: 'equipment', header: 'Equipment'},
+      {field: 'delivery_type', header: 'Delivery type'},
+      {field: 'pad', header: 'Pad'},
+      {field: 'action', header: '' }
+    ];
+
+    this.status = [
+      { name: 'Off Location', class: 'off-location'},
+
+    ]
+
+  }
   showDialog(ticket: Ticket) {
-    this.selectedTicket = { ...ticket };
+    this.selectedTicket = { ...ticket };    
   }
 
   getCountByStatus(status: string): Observable<number> {

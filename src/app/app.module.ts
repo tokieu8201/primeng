@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './component/list/list/list.component';
 import { UpdateComponent } from './component/update/update/update.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule} from '@angular/common/http'
+import { EffectsModule } from '@ngrx/effects';
 
 
 import { TableModule } from 'primeng/table';
@@ -24,12 +26,15 @@ import { PaginatorModule } from 'primeng/paginator';
 
 import { ticketReducer } from './state/ticket.reducer';
 import { StoreModule } from '@ngrx/store';
+import { TicketEffects } from './state/ticket.effect';
+import { PrimeTableComponent } from './component/prime-table/prime-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     UpdateComponent,
+    PrimeTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,9 @@ import { StoreModule } from '@ngrx/store';
     FormsModule,
     CalendarModule,
     ToastModule,
-    PaginatorModule
+    PaginatorModule,
+    HttpClientModule,
+    EffectsModule.forRoot([TicketEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
