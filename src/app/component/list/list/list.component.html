@@ -2,7 +2,6 @@
     [customBodyTemplate]="customBodyTemplate" [customCaptionTemplate]="customCaptionTemplate">
 </app-prime-table>
 
-
 <ng-template #customCaptionTemplate>
     <div class="flex custom-caption">
         <div *ngIf="(tickets$ | async) as tickets">
@@ -24,6 +23,7 @@
         </div>
     </div>
 </ng-template>
+
 <ng-template #customBodyTemplate let-rowData let-ticket>
     <tr>
         <td *ngFor="let col of cols">
